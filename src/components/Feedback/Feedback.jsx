@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Section from './Section';
 import Statistics from './Statistics';
 import FeedbackOptions from './FeedbackOptions';
+import Notification from './Notification';
 import styles from "./Feedback.module.css"
 
 class FeedbackWidget extends Component {
@@ -41,13 +42,16 @@ class FeedbackWidget extends Component {
         </Section>
 
         <Section title="Statistics">
-          <Statistics
-            good={good}
-            neutral={neutral}
-            bad={bad}
-            total={totalFeedback}
-            positivePercentage={positivePercentage}
-          />
+                {totalFeedback === 0 ? (
+                    <Notification message="There is no feedback" />
+                ) : (
+                    <Statistics
+                        good={good}
+                        neutral={neutral}
+                        bad={bad}
+                        total={totalFeedback}
+                        positivePercentage={positivePercentage}
+                    />)}
         </Section>
       </div>
     );
