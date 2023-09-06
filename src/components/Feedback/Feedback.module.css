@@ -1,0 +1,20 @@
+.feedback-container {
+  text-align: center;
+}
+
+.feedback-button {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.feedback-button:hover {
+  background-color: #e0e0e0;
+}
+
+.feedback-stats {
+  margin-top: 20px;
+}
