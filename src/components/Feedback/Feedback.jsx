@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
+import Section from './Section';
+import Statistics from './Statistics';
+import FeedbackOptions from './FeedbackOptions';
 import styles from "./Feedback.module.css"
-
 
 class FeedbackWidget extends Component {
   state = {
     good: 0,
     neutral: 0,
-    bad: 0
+    bad: 0,
   };
 
   handleFeedback = (type) => {
-    this.setState((prevState) => ({
-      [type]: prevState[type] + 1
+      this.setState((prevState) => ({
+      [type]: prevState[type] + 1,
     }));
   };
 
-    countTotalFeedback() {
+  countTotalFeedback() {
     const { good, neutral, bad } = this.state;
     return good + neutral + bad;
   }
@@ -30,27 +32,26 @@ class FeedbackWidget extends Component {
     const { good, neutral, bad } = this.state;
     const totalFeedback = this.countTotalFeedback();
     const positivePercentage = this.countPositiveFeedbackPercentage();
+    const options = ['good', 'neutral', 'bad'];
 
     return (
       <div className={styles['feedback-container']}>
-        <h1>Please leave feedback</h1>
-        <div>
-          <button onClick={() => this.handleFeedback('good')}  className={styles['feedback-button']}>Good</button>
-          <button onClick={() => this.handleFeedback('neutral')}  className={styles['feedback-button']}>Neutral</button>
-          <button onClick={() => this.handleFeedback('bad')}  className={styles['feedback-button']}>Bad</button>
-        </div>
-        <h2 className={styles['feedback-stats']}>Statistic</h2>
-        <div>
-          <p>Good: {good}</p>
-          <p>Neutral: {neutral}</p>
-            <p>Bad: {bad}</p>
-            <p>Total: {totalFeedback}</p>
-          <p>Positive feedback: {positivePercentage}%</p>
-        </div>
+        <Section title="Please leave feedback">
+          <FeedbackOptions options={options} onLeaveFeedback={this.handleFeedback} />
+        </Section>
+
+        <Section title="Statistics">
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={totalFeedback}
+            positivePercentage={positivePercentage}
+          />
+        </Section>
       </div>
     );
   }
 }
 
 export default FeedbackWidget;
-
