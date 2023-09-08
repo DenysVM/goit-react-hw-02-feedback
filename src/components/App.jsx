@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FeedbackOptions from './FeedbackOption/FeedbackOptions';
 import Statistics from './FeedbackStatistics/FeedbackStatistics';
 import Section from './FeedbackSection/FeedbackSection';
+import Notification from './FeedbackNotification/FeedbackNotification';
 import styles from './Feedback.module.css';
 
 class App extends Component {
@@ -59,9 +60,5 @@ class App extends Component {
     );
   }
 }
-
-const Notification = ({ message }) => {
-  return <p>{message}</p>;
-};
 
 export default App;
