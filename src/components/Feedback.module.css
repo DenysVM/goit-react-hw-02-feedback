@@ -1,8 +1,8 @@
-.feedback-container {
+.feedback_container {
   text-align: center;
 }
 
-.feedback-button {
+.feedback_button {
   background-color: #f0f0f0;
   border: none;
   padding: 10px 20px;
@@ -11,10 +11,6 @@
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.feedback-button:hover {
+.feedback_button:hover {
   background-color: #e0e0e0;
-}
-
-.feedback-stats {
-  margin-top: 20px;
 }
